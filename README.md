@@ -47,3 +47,42 @@ the database. The other is client side. They're called "CheckersService" and
 * Both projects should be configured to run with the Tomcat server. (Right
  click project > Properties > Project Facets > Select "Runtimes" tab >
  Select "Apache Tomcat v7.0" > OK)
+
+## Server
+
+### Mac Instructions
+
+The following instructions are for Mac and assume the SSH key (`.pem` file) is saved and populated.
+
+#### Access phpMyAdmin
+
+SSH Tunnel to access phpMyAdmin locally (http://localhost:8888/phpmyadmin):
+
+```sh
+ssh  -v -N -L 8888:127.0.0.1:80 -i [`.pem` file path] bitnami@cst438-checkers.bitnamiapp.com
+```
+*"[`.pem` file path]" will need to be updated to reflect your saved location/file name.
+
+#### Copy New Code to Server
+
+1. Export both CheckersClient and CheckersService as a .war file.
+2. Move CheckersClient.war and CheckersService.war to the home directory on the server.
+    
+    ```sh
+    scp -i [.pem file path] [file path]CheckersClient.war bitnami@cst438-checkers.bitnamiapp.com:~/
+    scp -i [.pem file path] [file path]CheckersService.war bitnami@cst438-checkers.bitnamiapp.com:~/
+    ```
+    *Update relative paths for war files & SSH key before running.
+3. SSH into the server.
+    
+    ```sh
+    ssh -i [.pem file path] bitnami@cst438-checkers.bitnamiapp.com
+    ```
+    *Update relative path for SSH key before running.
+4. Move the `.war` files into the destination directory. This requires `sudo`, which is why it is not done in step #2.
+    
+    ```sh
+    sudo mv CheckersClient.war ~/stack/apache-tomcat/webapps
+    sudo mv CheckersService.war ~/stack/apache-tomcat/webapps
+    ```
+5. New code should automatically deploy at http://cst438-checkers.bitnamiapp.com/CheckersClient/ and http://cst438-checkers.bitnamiapp.com/CheckersService.
