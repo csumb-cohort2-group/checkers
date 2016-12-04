@@ -6,7 +6,7 @@ A online Checkers Game where you will play against a computer AI.
 
 Get the project up and running with Eclipse Mars. This project has two separate
 applications. One is server side and a REST application that communicates with
-the database. The other is client side. They're called "CheckersServer" and
+the database. The other is client side. They're called "CheckersService" and
 "CheckersClient" for our purposes.
 
 ### Installation Requirements
@@ -26,15 +26,15 @@ the database. The other is client side. They're called "CheckersServer" and
 #### Client & Server
 
 1. Import `CheckersClient` as a new maven project.
-2. Import `CheckersServer` as a new maven project.
+2. Import `CheckersService` as a new maven project.
 3. Add `CheckersClient` to the Tomcat webserver.
-4. Add `CheckersServer` to the Tomcat webserver.
+4. Add `CheckersService` to the Tomcat webserver.
 
 #### Run
 
 1. Start the Tomcat webserver.
 2. Two endpoints should be available from your browser:
-  * http://localhost:8080/CheckersServer/
+  * http://localhost:8080/CheckersService/
   * http://localhost:8080/CheckersClient/
 
 #### Debugging Setup
