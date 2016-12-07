@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>cst.Checkers</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>CreateUsername</servlet-name>
+  	<display-name>CreateUsername</display-name>
+  	<description></description>
+  	<servlet-class>cst.CreateUsername</servlet-class>
+  </servlet>
+  <servlet-mapping>
+   <servlet-name>CreateUsername</servlet-name>
+   <url-pattern>/CreateUsername</url-pattern>
+  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>Checkers</servlet-name>
-  	<url-pattern>/</url-pattern>
+  	<url-pattern>/Checkers</url-pattern>
   </servlet-mapping>
 </web-app>
