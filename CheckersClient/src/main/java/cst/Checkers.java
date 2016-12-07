@@ -72,13 +72,24 @@ public class Checkers extends HttpServlet {
         super();
     }
 
-   /**
-    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-    */
-   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      request.getRequestDispatcher("checkers.jsp").forward(request, response);
-      response.getWriter().append("Served at: ").append(request.getContextPath());
-   }
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    // Create or retrieve previous session.
+    HttpSession session = request.getSession(true);
+    String username = (String) session.getAttribute("username");
+
+    // Make the user create a username if they haven't already done so.
+    if (username == null) {
+      request.getRequestDispatcher("create_user.jsp")
+          .forward(request, response);
+      return;
+    }
+
+    // Proceed to the checkers game.
+    request.getRequestDispatcher("checkers.jsp").forward(request, response);
+	}
 
    /**
     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
