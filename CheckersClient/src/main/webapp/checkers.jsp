@@ -17,7 +17,7 @@ div
 <body style="background-color:red;">
 <div>
 <br><h3>Welcome to the Checkers Game.</h3><br>
-<br><h3><a href = https://simple.wikipedia.org/wiki/Checkers>How to Play!</a> </h3><br>
+<br><h3><a href = "https://simple.wikipedia.org/wiki/Checkers">How to Play!</a> </h3><br>
 <br>Press Enter to Start!<br>
 <br><br>
 <form method="POST" action="checkers">
